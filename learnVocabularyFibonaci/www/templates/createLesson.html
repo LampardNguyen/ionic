@@ -1,0 +1,33 @@
+<ion-view>
+	<ion-header-bar class="bar bar-subheader item-input-inset">
+		<label class="item-input-wrapper"> <i class="icon ion-ios-search placeholder-icon"></i>
+			<input type="search" placeholder="Search" ng-model = "model.search.$" ng-init="model.search.$ = ''">
+			<input type="hidden" ng-model="model.search.english">
+			<input type="hidden" ng-model="model.search.vietnamese"></label>
+		<button class="button button-clear p" ng-click="model.search.$ = ''">{{model.vocabularyCreateLesson.length}}</button>
+	</ion-header-bar>
+	<!-- Modal content area -->
+	<ion-content has-bouncing="true" overflow-scroll="true">
+		<ion-list>
+			<ion-item class="item-input item-button-right">
+				<input type="text" placeholder="lesson name" ng-model="model.lessonName" maxlength="50" autofocus><button class="button button-outline button-assertive " ng-click="createLesson()">
+      Create
+    </button></ion-item>
+			<ion-item class="item-input error_message" ng-if="model.errorLessonName == true">
+				<p>name of lesson is required</p>
+			</ion-item>
+			<ion-item class="item-input error_message" ng-if="model.errorLessonListWord == true">
+				<p>please choose your words</p>
+			</ion-item>
+			<div class="item range range-positive" style="width:100%;">
+				<input type="range" name="volume" min="5" max="100"  ng-model="model.countWordsOfLesson" ng-change="changeCountWordOfLesson()"> <i>{{model.countWordsOfLesson}}</i>
+			</div>
+			<ion-item class="item-checkbox bouncy-slide-left" collection-repeat="item in model.vocabularyCreateLesson = ( model.currentClass.vocabulary | filter:model.search)">
+				<label class="checkbox">
+					<input type="checkbox" ng-model="item.isChecked" ng-change="countCheck()"></label>
+				<h2>{{item.english}}</h2>
+				<p>{{item.vietnamese}}</p>
+			</ion-item>
+		</ion-list>
+	</ion-content>
+</ion-view>

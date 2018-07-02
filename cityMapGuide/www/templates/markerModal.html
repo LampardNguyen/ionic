@@ -1,0 +1,13 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-header bar-positive" align-title="center">
+    <h1 class="title">Want?</h1>
+    <button class="button button-clear button-primary" ng-click="main.closeMarkerModal();">Cancel</button>
+  </ion-header-bar>
+  <ion-content class="padding">
+    <div class="list">
+    <ion-item ng-if="main.markerCurrent != null" ng-click="main.deleteMarker();">Delete this marker</ion-item>
+    <ion-item ng-click="main.setStartPoint();">Set as start point</ion-item>
+    <ion-item ng-click="main.setEndPoint();">Set as end point</ion-item>
+    </div>
+  </ion-content>
+</ion-modal-view>

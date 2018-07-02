@@ -1,0 +1,30 @@
+<ion-header-bar align-title="center" class="bar-positive">
+    <div class="buttons">
+        <button class="button button-clear icon ion-ios-plus-outline" ng-click="showPopupAddClass()"></button>
+    </div>
+    <h1 class="title">Classes</h1>
+    <div class="buttons">
+        <button class="button button-clear icon  ion-ios-home-outline" ng-click="showHome()"></button>
+    </div>
+</ion-header-bar>
+<ion-content>
+    <ion-list>
+        <div ng-repeat="class in model.classList" class="scale-fade-in">
+            <a  class="item item-icon-left " href="#" ng-click="chooseClass(class)"
+                    ng-class="{active: isGroupShown(class), 'item-icon-right':item.showRemove == true}" on-swipe-left="item.showRemove = true" on-swipe-right="item.showRemove = false" can-swipe="true"> <i ng-click="toggleGroup(class)" class="icon" ng-class="isGroupShown(class) ? 'ion-android-arrow-dropdown' : 'ion-android-arrow-dropright'"></i>
+                {{class.name}} <i class="icon ion-ios-trash-outline scale-fade" ng-if="item.showRemove == true" ng-click="selectRemoveClass(class)"></i>
+            </a>
+            <a class="item item-accordion bouncy-slide-right item-button-right" href="#" 
+                    ng-repeat="item in class.lessons"
+                    ng-show="isGroupShown(class)" ng-click="chooseLesson(item)" >
+                <h2>{{item.name}}</h2>
+                <p ng-if="item.nextLearnDate != null && item.nextLearnDate != ''">Next date: {{item.nextLearnDate}}</p>
+                <button class="button button-clear button-energized" >
+                    <i class="icon ion-ios-star-outline" ng-if="item.state == 0"></i>
+                    <i class="icon ion-ios-star" ng-if="item.state == 1"></i>
+                    <i class="icon ion-ios-star-half" ng-if="item.state == 2"></i>
+                </button>
+            </a>
+        </div>
+    </ion-list>
+</ion-content>

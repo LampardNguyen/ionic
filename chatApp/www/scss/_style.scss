@@ -1,0 +1,92 @@
+$d: #dddddd;
+$border: 1px solid $d;
+
+.One {
+	.messages {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+
+		li {
+			display: block;
+			clear: both;
+			margin: 0 0 1rem 0;
+			padding: 0;
+		}
+		p {
+			border-radius: .75rem;
+			background: #e6e5eb;
+			color: #383641;
+			padding: .6875rem;
+			margin: 0;
+			font-size: .875rem;
+		}
+		img {
+			display: block;
+			max-width: 65%;
+			border-radius: .75rem;
+		}
+		.item-message {
+			.head-time {
+				text-align: center;
+			}
+			.message {
+				background: #dddddd;
+				border-radius: 5px;
+				padding: 10px;
+				max-width: 50%;
+
+				&.right {
+					float: right;
+					background: #158ffe;
+					color: #fff;
+				}
+			}
+		}
+	}
+	footer {
+		margin-top: 5px;
+
+		&.message-attach {
+			a {
+				text-decoration: initial;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+	.contact-info{
+		input{
+			&[type="text"]{
+				&[disabled]{
+					background: none;
+				}
+			}
+		}
+	}
+}
+ion-side-menu {
+	&.menu-left {
+		.status-user {
+			position: absolute;
+			border-radius: 50%;
+			height: 14px;
+			width: 14px;
+			top: 39px;
+			left: 48px;
+			border-width: 1px;
+			border-style: solid;
+		}
+		.request-friend {
+			&:after {
+				content: '?';
+				position: relative;
+				top: -4px;
+				font-size: 13px;
+				left: 2px;
+			}
+		}
+	}
+}

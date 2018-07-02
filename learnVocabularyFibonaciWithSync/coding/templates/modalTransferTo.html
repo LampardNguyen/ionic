@@ -1,0 +1,18 @@
+<div class="modal modal_login0000">
+	<ion-header-bar class="bar-assertive" align-title="center">
+		<h1 class="title">Transfer to</h1>
+	</ion-header-bar>
+	<ion-content has-bouncing="true" overflow-scroll="true">
+		<ion-list>
+			<ion-item collection-repeat="class in model.classList" class="scale-fade-in" ng-click="chooseClassTransfer(class)" ng-class="{'active' : model.classTransfer.idOffline == class.idOffline}"><h2>{{class.name}}</h2></ion-item>
+		</ion-list>
+		<div class="row responsive-sm but_func" layout="row">
+			<button class="col col-25 md_button button button-small button-assertive button-outline" ng-click="acceptTransfer()">
+				<span>Ok</span>
+			</button>
+			<button class="col col-25 md_button button button-small button-assertive button-outline" ng-click="cancelTransfer()">
+				<span>Cancel</span>
+			</button>
+		</div>
+	</ion-content>
+</div>

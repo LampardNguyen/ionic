@@ -1,0 +1,12 @@
+{
+  "name": "chatApp",
+  "app_id": "e266d177",
+  "gulpStartupTasks": [
+    "sass",
+    "watch"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ]
+}

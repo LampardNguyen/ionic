@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title></title>
+
+  <link href="css/ionic.app.css" rel="stylesheet"></head>
+<body ng-app="starter" ng-controller="MainController as main" ng-cloak>
+
+  <ion-pane>
+    <ion-header-bar align-title="center" class="bar-positive">
+    <!-- <button class="button button-icon icon ion-ios-reload" ng-click="main.reload();"></button> -->
+      <h1 class="title">City map guide</h1>
+      <button class="button button-icon icon ion-ios-more" ng-click="main.showMenuRight($event);"></button>
+      <!-- <button class="button button-icon icon ion-ios-refresh-outline" ng-click="main.refreshMarker();"></button> -->
+    </ion-header-bar>
+    <ion-content>
+      <div class="Km" ng-show="main.km != null">{{main.km}}km</div>
+      <div id="map-canvas" on-hold="main.touchOnMarker()" ></div>
+    </ion-content>
+    <ion-footer-bar class="bar-dark">
+    <div class="button-bar">
+      <a class="button button-icon icon ion-ios-location-outline" ng-click="main.createNewMarker()"></a>
+      <a class="button button-icon icon ion-android-locate" ng-click="main.findMe()"></a>
+      <a class="button button-icon icon ion-ios-search" ng-click="main.openSearchModal();"></a>
+      <a class="button button-icon icon ion-compass" ng-click="main.showModeTravel($event);"></a>
+      <a class="button button-icon icon ion-ios-navigate-outline" ng-click="main.showDirections($event);"></a>
+      <!-- <a class="button button-icon icon ion-ios-information-outline" ng-click="main.showAbout($event);"></a> -->
+    </div>
+  </ion-footer-bar>
+</ion-pane>
+<!-- ionic/angularjs js -->
+<script src="lib/ionic/js/ionic.bundle.min.js"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?v=3&signed_in=true&libraries=places"></script>
+
+<script src="./lib/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8" ></script>
+<!-- your app's js -->
+<script src="js/app.js"></script>
+
+<!-- ngCordova -->
+<script src="./lib/ngCordova/ng-cordova.min.js" type="text/javascript" charset="utf-8" ></script>
+<!-- cordova script (this will be a 404 during development) -->
+<script src="cordova.js"></script>
+</body>
+</html>

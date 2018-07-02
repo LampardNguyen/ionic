@@ -1,0 +1,50 @@
+<ion-view ng-init="init()">
+	<ion-nav-buttons side="secondary">
+		<button class="button button-icon icon ion-ios-search-strong" ng-click="showFilterBar()"></button>
+	</ion-nav-buttons>
+	<ion-content has-bouncing="true" overflow-scroll="true">
+		<form name="addNewWordsForm" ng-submit="AddNewWords()" ng-init="initAddNewWordsForm(this)" ng-if="model.search.$ == '' || model.search.$ == null" class="scale-fade-in">
+			<div class="list">
+				<div class="item item-input-inset">
+					<input id="inputFirst" class="item-input-wrapper" style="padding-right:0px;margin-right:44px;background: none;" type="text" placeholder="{{model.languages[model.languageLearn].name}}" name="english" ng-model="model.english" required maxlength="150" autofocus> <i  class="icon ion-ios-mic-outline micInput" ng-click="inputSpeech('english', model.languages[model.languageLearn].value)"></i>
+				</div>
+				<div class="item item-input-inset">
+					<input class="item-input-wrapper" style="padding-right:0px;margin-right:44px;background: none;" type="text" placeholder="Vietnamese" name="vietnamese" ng-model="model.vietnamese" required maxlength="150"> <i  class="icon ion-ios-mic-outline micInput" ng-click="inputSpeech('vietnamese', 'vi-VN')"></i>
+				</div>
+				<div class="item item-input-inset">
+					<input type="text" class="item-input-wrapper" style="resize: none;background: none;" placeholder="Example" name="example" ng-model="model.example" maxlength="250" />
+					<i  class="icon ion-ios-mic-outline micInput" ng-click="inputSpeech('example', model.languages[model.languageLearn].value)"></i>
+				</div>
+				<div class="item error_message" ng-messages="addNewWordsForm.english.$error" ng-if="(addNewWordsForm.english.$touched && addNewWordsForm.english.$invalid)">
+					<p>
+						<span ng-message="required">{{model.languages[model.languageLearn].name}} is required</span>
+					</p>
+				</div>
+				<div class="item error_message" ng-messages="addNewWordsForm.vietnamese.$error" ng-if="(addNewWordsForm.vietnamese.$touched && addNewWordsForm.vietnamese.$invalid)">
+					<p>
+						<span ng-message="required">Vietnamese is required</span>
+					</p>
+				</div>
+			</div>
+			<div class="row padding responsive-sm but_func" layout="row">
+				<button class="col col-25 md_button button button-small button-assertive button-outline">Add</button>
+				<span style="width: 10px;"></span>
+				<input accept=".txt" id="chooseFile" type="file" file-reader="fileContent" change="endChooseFile(arr)" class="ng-hide">
+				<button type="button" file-reader="fileContent" class="col col-25 md_button button button-small button-assertive button-outline" ng-click="chooseFile();">Import txt file</button>
+			</div>
+		</form>
+		<hr>
+		<p class="p">New {{model.newWordListTmp.length}} word(s)</p>
+		<ion-list>
+			<ion-item collection-repeat="item in model.newWordList" class="bouncy-slide-right">
+				<h2>{{item.english}}</h2>
+				<p>
+					{{item.vietnamese}}
+					<span ng-if="item.example != null && item.example != ''">&nbsp;(</span>
+					{{item.example}}
+					<span ng-if="item.example != null && item.example != ''">)</span>
+				</p>
+			</ion-item>
+		</ion-list>
+	</ion-content>
+</ion-view>

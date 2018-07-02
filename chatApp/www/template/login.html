@@ -1,0 +1,21 @@
+<div class="modal">
+  <!-- Modal header bar -->
+  <ion-header-bar class="bar-secondary" align-title="center">
+    <h1 class="title">Login chat with me</h1>
+    <button class="button button button-icon ion-android-create" ng-click="showSigup()"></button>
+  </ion-header-bar>
+  <!-- Modal content area -->
+  <ion-content>
+    <form ng-submit="loginSubmit(name, pass)">
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" placeholder="Username or Email" ng-model="name" required></label>
+          <label class="item item-input">
+          <input type="password" placeholder="Password" ng-model="pass" required></label>
+      </div>
+      <div class="padding">
+        <button type="submit" class="button button-block button-positive">Login</button>
+      </div>
+    </form>
+  </ion-content>
+</div>

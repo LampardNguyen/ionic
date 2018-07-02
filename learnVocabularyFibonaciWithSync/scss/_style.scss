@@ -1,0 +1,145 @@
+$font: "Century Gothic", sans-serif;
+
+
+
+.but_func {
+    button {
+        margin: 0 auto;
+        font-size: 12.0pt;
+    }
+}
+.error_message {
+    p {
+        color: red;
+    }
+}
+%p {
+    font-family: $font !important;
+    font-size: 20.0pt !important;
+    line-height: 125% !important;
+    color: #C00000 !important;
+    text-align: center !important;
+}
+
+hr {
+    border: solid 1px gray;
+    box-shadow: 2px 2px 2px;
+    width: 75%;
+}
+.md_button{
+        box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+}
+.md_button_circle{
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    position: relative;
+    outline: 0;
+    border: 0;
+    display: inline-block;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0 6px;
+    margin: 6px 8px;
+    min-height: 36px;
+    background: 0 0;
+    white-space: nowrap;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 14px;
+    font-style: inherit;
+    font-variant: inherit;
+    font-family: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 20;
+    line-height: 56px;
+    min-width: 0;
+    width: 56px;
+    height: 56px;
+    vertical-align: middle;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+    border-radius: 50%;
+    background-clip: padding-box;
+    overflow: hidden;
+    transition: .2s linear;
+    transition-property: background-color,box-shadow;
+    background-color: rgb(255,82,82) !important;
+    color: rgb(255,255,255) !important;
+}
+.p {
+    @extend %p;
+}
+
+.content0000 {
+    .main0000 {
+        text-align: center;
+        h1 {
+            font-size: 36.0pt;
+            font-family: $font;
+            color: #B01513;
+        }
+        .img_fibonacci {
+            margin: 0 auto;
+            @media (min-width: 555px) {
+                display: none;
+            }
+        }
+        p {
+            @extend %p;
+        }
+        ul{
+           @media (min-width: 555px) {
+                display: initial;
+            }
+            display: none;
+            margin: 0 auto;
+            li{
+                display: inline-block;
+                color: #F5877F;
+                padding: 0px 0px 3px 5px;
+                font-size: 32px;
+                &.number{
+                    width: 60px;
+                    background-color: #EF473A !important;
+                    border-radius: 5px;
+                    color: white !important;
+                    padding: 16px 0px !important;
+                }
+            }
+            
+        }
+    }
+    .mainLesson0000 {
+        @extend .main0000;
+    }
+}
+.micInput{
+        font-size: 32px;
+}
+.float-button {
+    position: fixed;
+}
+
+@for $i from 1 through 10 {
+    .top-#{$i * 5} {
+        top: #{$i * 5}px;
+    }
+    .left-#{$i * 5} {
+        left: #{$i * 5}px;
+    }
+    .bottom-#{$i * 5} {
+        bottom: #{$i}px;
+    }
+    .right-#{$i * 5} {
+        right: #{$i}px;
+    }
+}
+
+
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}

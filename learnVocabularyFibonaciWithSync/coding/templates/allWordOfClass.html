@@ -1,0 +1,23 @@
+<ion-view ng-init="init();">
+<ion-nav-buttons side="secondary">
+    <button class="button button-icon icon ion-ios-search-strong" ng-click="showFilterBar()">
+    </button>
+  </ion-nav-buttons>
+	<!-- <ion-header-bar class="bar bar-subheader item-input-inset">
+		<label class="item-input-wrapper"> <i class="icon ion-ios-search placeholder-icon"></i>
+			<input type="search" placeholder="Search" ng-model = "model.search.$" ng-init="model.search.$ = ''"></label>
+			<input type="hidden" ng-model="model.search.english">
+			<input type="hidden" ng-model="model.search.vietnamese">
+		<button class="button button-clear p" ng-click="model.search.$ = ''">{{model.vocabularyAllWord.length}}</button>
+	</ion-header-bar> -->
+	<ion-content has-bouncing="true" overflow-scroll="true">
+		<ion-list class="allWordOfClass0000">
+			<ion-item collection-repeat="item in  model.currentClass.vocabulary" class="bouncy-slide-left">
+				<h2>{{item.english}}</h2>
+				<p>{{item.vietnamese}}&nbsp;<span ng-if="item.example != null && item.example != ''">(</span>{{item.example}}<span ng-if="item.example != null && item.example != ''">)</span></p>
+				<ion-option-button class="button icon ion-edit" ng-click="showModalUpdateWords(item)"></ion-option-button>
+				<ion-option-button class="button icon ion-ios-trash-outline button-assertive" ng-click="selectRemoveWord(item)" ng-if="item.isLearned == 0"></ion-option-button>
+			</ion-item>
+		</ion-list>
+	</ion-content>
+</ion-view>

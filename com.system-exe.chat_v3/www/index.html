@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title></title>
+
+  <link rel="stylesheet" href="css/ionic.app.css">
+
+  <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">--></head>
+<body ng-app="starter" ng-controller="mainCtrl" ng-cloak class="main0000">
+
+  <ion-side-menus>
+    <!-- Center content -->
+    <ion-side-menu-content class="content0000">
+      <ion-header-bar align-title="center" class="bar-positive">
+        <h1 class="title">Chat! {{model.userCurrent.username}}</h1>
+        <div class="buttons">
+          <button class="button button-icon button-positive icon-left ion-log-out" ng-click="logout()"></button>
+        </div>
+      </ion-header-bar>
+      <ion-content has-bouncing="true" overflow-scroll="true" class="One">
+      
+        <ul ng-if="!model.showContactInfo" class="messages" ng-click="updateMessageCount();">
+        <!-- list message -->
+          <li class="item-message" ng-repeat="item in model.messages" >
+            <div class="head-time">
+              <time class="time" datetime="{{item.time}}">{{item.timeago}}</time>
+            </div>
+            <section class="message white" ng-class="{'right':item.from==model.userCurrent.username}">
+              <header> <b class="user">{{item.from}}</b>
+              </header>
+              <div class="message-description">{{item.body}}</div>
+            </section>
+          </li>
+          <!-- list friend add to group -->
+          <ion-item ng-if="model.showUserAddToGroup" ng-repeat="item in model.friendsToUser track by $index" class="item item-avatar item-icon-right">
+
+            <img src="./img/user.jpg">
+            <h2>{{item.username}}</h2>
+            <label class="checkbox icon">
+              <input ng-change="stopClick();" type="checkbox" ng-model="item.selected" ng-checked="item.selected == true"></label>
+          </ion-item>
+          <a class="item" ng-if="model.friendsToUser.length == 0">
+            No user
+          </a>
+        </ul>
+        <!-- info request -->
+        <ion-list  class="contact-info" ng-if="model.showRequestFriend == true">
+
+          <div class="card">
+            <div class="item item-divider">make friend</div>
+            <div class="item item-text-wrap">
+              Hi {{model.userCurrent.username}}, I'd like to add you as a contact.
+            </div>
+            <div  class="item  item-divider button-bar bar-positive">
+              <a class="button" ng-click="acceptFriend()">accept</a>
+              <a class="button" ng-click="rejectFriend()">reject</a>
+            </div>
+          </div>
+
+        </ion-list>
+      </ion-content>
+      <!-- footer conrtol chat -->
+      <ion-footer-bar ng-show="model.showChat == true && model.showUserAddToGroup == false" class="bar-light item-input-inset" align-title="center">
+        <label class="item-input" style="width: 100%;">
+          <input type="text" placeholder="message" ng-model="model.messageSend"></label>
+        <button ng-if="!model.isGroupMessage" type="submit" class="button button-icon icon ion-android-send" ng-click="sendMessage()"></button>
+        <button ng-if="model.isGroupMessage == true" type="submit" class="button button-icon icon ion-android-send" ng-click="sendMessageGroup()"></button>
+      </ion-footer-bar>
+      <!-- footer button add user to group -->
+      <ion-footer-bar ng-show="model.showUserAddToGroup == true" class="bar-light item-input-inset" align-title="center">
+      <div class="button-bar">
+        <button class="button button-positive" ng-click="AddUserToGroup();"> 
+           OK
+        </button>
+        <button class="button button-positive" ng-click="CancelAddUserToGroup();"> 
+           Cancel
+        </button>
+      </div>
+      </ion-footer-bar>
+    </ion-side-menu-content>
+
+    <!-- Left menu -->
+    <ion-side-menu side="left" class="menuLeft0000">
+      <ion-header-bar align-title="center" class="bar-positive">
+        <div class="buttons">
+          <button class="button" ng-click="doSomething()">Left Button</button>
+        </div>
+        <h1 class="title">Title!</h1>
+        <div class="buttons">
+          <button class="button">Right Button</button>
+        </div>
+      </ion-header-bar>
+      <ion-content>
+        <ion-list>
+          <ion-item >Chat</ion-item>
+        </ion-list>
+      </ion-content>
+      <ion-footer-bar align-title="center" class="bar-assertive">
+        <div class="buttons">
+          <button class="button">Left Button</button>
+        </div>
+        <h1 class="title">Title!</h1>
+        <div class="buttons" ng-click="doSomething()">
+          <button class="button">Right Button</button>
+        </div>
+      </ion-footer-bar>
+    </ion-side-menu>
+
+    <!-- Right menu -->
+    <ion-side-menu side="right" class="menuRight0000">
+      <ion-tabs class="tabs-positive tabs-icon-top">
+        <!-- tab person -->
+        <ion-tab title="Person" icon="ion-android-contact" >
+          <ion-header-bar align-title="center" class="bar-positive">
+            <h1 class="title">Contact</h1>
+          </ion-header-bar>
+          <ion-content has-subheader="false" padding="true" class="has-header">
+            <ion-list>
+              <!-- search control -->
+              <div class="item item-input-inset">
+                <label class="item-input-wrapper"> <i class="icon ion-search placeholder-icon"></i>
+                  <input type="text" placeholder="Search" ng-model="model.searchContact" ></label>
+                <button class="button button-icon button-small icon ion-backspace-outline" ng-click="clearSearchContact();"></button>
+              </div>
+              <!-- list contact -->
+              <!-- <ion-item ng-class="{'active':item.id == model.currentFriend.id}" ng-repeat="item in model.usersAndGroups" ng-click="selectUser(item);" on-hold="holdOnUser(item);">{{item.login}}</ion-item>
+            -->
+            <a class="item item-avatar" href="#" ng-repeat="contact in model.friends | filter : {username : model.searchContact }" ng-click="selectContact(contact);" ng-class="{'active':contact.id == model.contactCurrent.id}">
+              <img src="./img/user.jpg" >
+              <div ng-class="{'stable-bg':contact.status == systemConfig.statusObj.offline,'positive-bg':contact.status == systemConfig.statusObj.online, 'request-friend':contact.status == systemConfig.statusObj.pending, 'new-friend':contact.status == systemConfig.statusObj.new}" class="status-user stable-bg positive-border"></div>
+              <h2>{{contact.username}}</h2>
+              <p class="status-comment">comment status</p>
+              <span class="badge badge-balanced count-message">{{contact.messageCount}}</span>
+            </a>
+            <ion-item ng-if="model.searchContact != null && model.searchContact != ''" class="item-input-inset">
+              <button class="button button-positive button-small button-search-contact" ng-click="searchOnChat();">search on chat</button>
+            </ion-item>
+
+          </ion-list>
+        </ion-content>
+      </ion-tab>
+      <!-- tab group -->
+      <ion-tab title="Group" icon="ion-android-contacts">
+        <ion-header-bar align-title="center" class="bar-positive">
+          <h1 class="title">Group</h1>
+        </ion-header-bar>
+        <ion-content padding="true" class="has-header">
+          <ion-list>
+            <div class="item item-input-inset">
+              <label class="item-input-wrapper"> <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search" ng-model="model.searchGroup"></label>
+              <button class="button button-icon button-small icon ion-ios-plus-outline" ng-click="addGroup();"></button>
+            </div>
+            <ion-item ng-class="{'active':item.id == model.currentGroup.id}" class="item-icon-left" ng-repeat="item in model.groups | filter : {groupName : model.searchGroup}" ng-click="selectGroup(item);" on-hold="holdOnGroup(item);">
+              <i class="icon ion-person-stalker"></i>
+              {{item.groupName}}
+              <span class="badge badge-balanced"></span>
+            </ion-item>
+
+          </ion-list>
+        </ion-content>
+      </ion-tab>
+    </ion-tabs>
+  </ion-side-menu>
+</ion-side-menus>
+
+<!-- jquery -->
+<script src="lib/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8" ></script>
+<script src="lib/jquery/dist/jquery.timeago.js" type="text/javascript" charset="utf-8" ></script>
+<!-- ionic/angularjs js -->
+<script src="lib/ionic/js/ionic.bundle.js"></script>
+<!-- Firebase -->
+<script src="./lib/firebase/firebase.js"></script>
+
+<!-- AngularFire -->
+<script src="./lib/firebase/angularfire.min.js"></script>
+
+<!-- cordova script (this will be a 404 during development) -->
+<script src="cordova.js"></script>
+
+<script src="lib/underscore/underscore-min.js"></script>
+
+<!-- your app's js -->
+<script src="js/system-exe.chat.js"></script>
+<!-- your app's js -->
+<script src="js/app.js"></script>
+</body>
+</html>

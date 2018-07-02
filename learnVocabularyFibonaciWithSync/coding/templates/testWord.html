@@ -1,0 +1,32 @@
+<div class="modal modal_login0000">
+	<ion-header-bar class="bar-assertive" align-title="center">
+		<div class="buttons">
+                    <button class="button button-clear icon ion-ios-undo-outline" ng-click="hideTestWord()"></button>
+                </div>
+		<h1 class="title">Answer the question</h1>
+	</ion-header-bar>
+	<ion-content has-bouncing="true" overflow-scroll="true">
+		<p class="p">WHAT IS THIS MEAN?</p>
+		<hr>
+		<form ng-submit="checkMean()">
+			<div class="list">
+			<p class="p">{{model.voca.word}}</p>
+			<label class="item item-input item-floating-label item-icon-right" ng-if="model.isReadWord != true">
+				<span class="input-label">Meaning</span>
+				<input id="inputTestMean" style="padding-right:0px;margin-right:44px;" type="text" placeholder="Meaning" name="Meaning" ng-model="model.meaning"  maxlength="150" autofocus></label>
+			<p class="p" ng-if="model.wrong == true">Wrong answer</p>
+			<p class="p" ng-if="model.wrong == false">exactly</p>
+		</div>
+		<div class="row padding responsive-sm but_func" layout="row" ng-if="model.isReadWord != true">
+			<button ng-disabled="model.meaning == null || model.meaning == ''" class="col col-50 md_button button button-small button-assertive button-outline" ng-class="{'icon ion-ios-arrow-thin-right':model.showNext == true}">
+				<span ng-if="model.showNext != true">Check</span>
+			</button>
+		</div>
+		</form>
+		<p class="p">{{model.speech}}</p>
+		<hr>
+		<div layout="row" layout-sm="column" layout-align="center center">
+				<button class="col col-50 md_button md_button_circle button button-assertive icon ion-ios-mic-outline" ng-click="startSpeech()"></button>
+			</div>
+	</ion-content>
+</div>

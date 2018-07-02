@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title></title>
+
+  <link rel="stylesheet" href="css/ionic.app.css">
+
+  <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">--></head>
+<body ng-app="starter" ng-controller="mainCtrl" ng-cloak>
+
+  <ion-side-menus>
+    <!-- Center content -->
+    <ion-side-menu-content >
+      <ion-header-bar align-title="center" class="bar-positive">
+        <h1 class="title">Chat!</h1>
+        <div class="buttons">
+          <button class="button button-icon button-positive icon-left ion-log-out" ng-click="logout()"></button>
+        </div>
+      </ion-header-bar>
+      <ion-content overflow-scroll="" class="One">
+        <ul ng-if="!model.showContactInfo" class="messages">
+          <li class="item-message" ng-repeat="item in model.Items" >
+            <div class="head-time">
+              <time class="time" datetime="{{item.time}}">{{item.timeago}}</time>
+            </div>
+            <section class="message white" >
+              <header> <b class="user">{{item.username}}</b>
+              </header>
+              <div class="message-description">{{item.message}}</div>
+            </section>
+          </li>
+        </ul>
+      </ion-content>
+
+      <form ng-submit="sendMessage()">
+        <ion-footer-bar  class="bar-light item-input-inset">
+          <label class="item-input" style="width: 100%;">
+            <input type="text" placeholder="message" ng-model="model.messageSend"></label>
+          <button type="submit" class="button button-icon icon ion-android-send" ></button>
+        </ion-footer-bar>
+      </form>
+    </ion-side-menu-content>
+
+    <!-- Left menu -->
+    <ion-side-menu side="left">
+      <ion-content overflow-scroll=""></ion-content>
+    </ion-side-menu>
+
+    <!-- Right menu -->
+    <ion-side-menu side="right">
+      <ion-content overflow-scroll=""></ion-content>
+    </ion-side-menu>
+  </ion-side-menus>
+
+  <!-- jquery -->
+  <script src="lib/jquery/dist/jquery.min.js" type="text/javascript" charset="utf-8" ></script>
+  <script src="lib/jquery/dist/jquery.timeago.js" type="text/javascript" charset="utf-8" ></script>
+  <!-- ionic/angularjs js -->
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
+  <!-- Firebase -->
+  <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+
+  <!-- AngularFire -->
+  <script src="https://cdn.firebase.com/libs/angularfire/1.1.1/angularfire.min.js"></script>
+
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="cordova.js"></script>
+  <!-- your app's js -->
+  <script src="js/system-exe.chat.js"></script>
+  <!-- your app's js -->
+  <script src="js/app.js"></script>
+</body>
+</html>

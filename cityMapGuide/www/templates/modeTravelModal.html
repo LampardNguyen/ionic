@@ -1,0 +1,15 @@
+<ion-popover-view>
+	<ion-content>
+		<div class="list">
+			<li class="item item-checkbox">
+				<label class="checkbox">
+					<input type="checkbox" ng-model="main.modelCheck" ng-checked="main.modelCheck == true"></label>
+				Directions complex
+			</li>
+			<a class="item" ng-click="main.modeTravel = 'DRIVING';main.findWay()">Driving</a>
+			<a class="item" ng-click="main.modeTravel = 'WALKING';main.findWay()">Walking</a>
+			<a class="item" ng-click="main.modeTravel = 'BICYCLING';main.findWay()">Bicycling</a>
+			<a class="item" ng-click="main.modeTravel = 'TRANSIT';main.findWay()">Transit</a>
+		</div>
+	</ion-content>
+</ion-popover-view>

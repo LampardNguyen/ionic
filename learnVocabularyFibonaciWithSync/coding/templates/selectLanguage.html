@@ -1,0 +1,21 @@
+<div class="modal">
+	<ion-header-bar class="bar-assertive" align-title="center">
+		<h1 class="title">I want to learn</h1>
+	</ion-header-bar>
+	<ion-content has-bouncing="true" overflow-scroll="true">
+		<p class="p">WELCOME TO</p>
+		<p class="p">LEARN VOCABULARY FIBONACCI</p>
+		<hr>
+		<form name="loginForm" ng-submit="saveLanguage()">
+			<div class="list">
+				<label class="item item-input item-select">
+					<div class="input-label">Languages</div>
+					<select ng-options="item.id as item.name for item in model.languages" ng-model="model.languageItem"></select>
+				</label>
+			</div>
+			<div class="row padding responsive-sm but_func" layout="row">
+				<button class="col col-50 md_button button button-small button-assertive button-outline">Save</button>
+			</div>
+		</form>
+	</ion-content>
+</div>

@@ -1,0 +1,10 @@
+<ion-popover-view>
+	<ion-content>
+		<div class="list">
+			<a class="item" ng-click="showAllWords()">Show all</a>
+			<a class="item" ng-if="checkIfShowHideVietnamese() == true" ng-click="showVietnamese()">Show vietnamese</a>
+			<a class="item" ng-if="checkIfShowHideVietnamese() == false" ng-click="hideVietnamese()">Hide vietnamese</a>
+			<a class="item" ng-click="endLesson()">Study end</a>
+		</div>
+	</ion-content>
+</ion-popover-view>

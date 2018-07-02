@@ -1,0 +1,111 @@
+$d: #dddddd;
+$border: 1px solid $d;
+
+.One {
+	.messages {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+
+		li {
+			display: block;
+			clear: both;
+			margin: 0 0 1rem 0;
+			padding: 0;
+		}
+		p {
+			border-radius: .75rem;
+			background: #e6e5eb;
+			color: #383641;
+			padding: .6875rem;
+			margin: 0;
+			font-size: .875rem;
+		}
+		.item-message {
+			.head-time {
+				text-align: center;
+			}
+			.message {
+				background: #dddddd;
+				border-radius: 5px;
+				padding: 10px;
+				max-width: 80%;
+				width: 80%;
+				margin-left: 10px;
+
+				&.right {
+					float: right;
+					background: #158ffe;
+					color: #fff;
+					margin-right: 10px;
+				}
+			}
+		}
+	}
+	footer {
+		margin-top: 5px;
+
+		&.message-attach {
+			a {
+				text-decoration: initial;
+
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+	.contact-info {
+		input {
+			&[type="text"] {
+				&[disabled] {
+					background: none;
+				}
+			}
+		}
+	}
+}
+ion-side-menu {
+	&.menuRight0000 {
+		.status-user {
+			position: absolute;
+			border-radius: 50%;
+			height: 14px;
+			width: 14px;
+			top: 39px;
+			left: 48px;
+			border-width: 1px;
+			border-style: solid;
+		}
+		.request-friend {
+			&:after {
+				content: '?';
+				position: relative;
+				top: -5px;
+				font-size: 13px;
+				left: 3px;
+			}
+		}
+		.new-friend {
+			&:after {
+				content: '+';
+				position: relative;
+				top: -7px;
+				font-size: 27px;
+				left: -3px;
+				color: #0c60ee;
+			}
+		}
+		.button-search-contact {
+			width: 100%;
+		}
+		.item {
+			.badge {
+				right: 10px;
+			}
+		}
+	}
+}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+	display: none !important;
+}

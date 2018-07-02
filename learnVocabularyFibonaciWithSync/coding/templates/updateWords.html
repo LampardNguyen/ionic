@@ -1,0 +1,44 @@
+<div class="modal modal_addNewWords0000">
+	<ion-header-bar class="bar-assertive" align-title="center">
+		<button class="button button-icon icon ion-ios-undo-outline" ng-click="closeUpdateWords();"></button>
+		<h1 class="title">Add New Words</h1>
+	</ion-header-bar>
+	<ion-content>
+		<form name="updateWordsForm" ng-submit="updateWords()" ng-init="initUpdateWordsForm(this)">
+			<div class="list">
+				<!-- <div class="item item-input item-floating-label item-icon-right">
+					<span class="input-label">English</span>
+					<input style="padding-right:0px;margin-right:44px;" type="text" placeholder="English" name="english" ng-model="model.english" required maxlength="50"></div>
+				<div class="item item-input item-floating-label item-icon-right">
+					<span class="input-label">Vietnamese</span>
+					<input style="padding-right:0px;margin-right:44px;" type="text" placeholder="Vietnamese" name="vietnamese" ng-model="model.vietnamese" required maxlength="50"></div>
+                <div class="item item-input item-floating-label item-icon-right">
+					<span class="input-label">Example</span>
+					<textarea  type="text" placeholder="Example" name="example" ng-model="model.example" maxlength="250"></textarea></div> -->
+				<div class="item item-input-inset">
+					<input class="item-input-wrapper" style="padding-right:0px;margin-right:44px;background: none;" type="text" placeholder="{{model.languages[model.languageLearn].name}}" name="english" ng-model="model.english" required maxlength="150" autofocus> <i  class="icon ion-ios-mic-outline micInput" ng-click="inputSpeech('english', model.languages[model.languageLearn].value)"></i>
+				</div>
+				<div class="item item-input-inset">
+					<input class="item-input-wrapper" style="padding-right:0px;margin-right:44px;background: none;" type="text" placeholder="Vietnamese" name="vietnamese" ng-model="model.vietnamese" required maxlength="150"> <i  class="icon ion-ios-mic-outline micInput" ng-click="inputSpeech('vietnamese', 'vi-VN')"></i>
+				</div>
+				<div class="item item-input-inset">
+					<input type="text" class="item-input-wrapper" style="resize: none;background: none;" placeholder="Example" name="example" ng-model="model.example" maxlength="250" />
+					<i  class="icon ion-ios-mic-outline micInput" ng-click="inputSpeech('example', model.languages[model.languageLearn].value)"></i>
+				</div>
+				<div class="item error_message" ng-messages="updateWordsForm.english.$error" ng-if="(updateWordsForm.english.$touched && updateWordsForm.english.$invalid)">
+					<p>
+						<span ng-message="required">English is required</span>
+					</p>
+				</div>
+				<div class="item error_message" ng-messages="updateWordsForm.vietnamese.$error" ng-if="(updateWordsForm.vietnamese.$touched && updateWordsForm.vietnamese.$invalid)">
+					<p>
+						<span ng-message="required">Vietnamese is required</span>
+					</p>
+				</div>
+			</div>
+			<div class="row padding responsive-sm but_func" layout="row">
+				<button class="col col-50 md_button button button-small button-assertive button-outline">update</button>
+			</div>
+		</form>
+	</ion-content>
+</div>

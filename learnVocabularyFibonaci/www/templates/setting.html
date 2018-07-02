@@ -1,0 +1,21 @@
+<ion-view>
+	<ion-content has-bouncing="true" overflow-scroll="true">
+		<div class="setting0000">
+			<div class="list">
+				<div class="item range range-positive">
+					<input type="range" name="volume" min="5" max="25"  ng-model="model.maxCountLearn"> <i>{{model.maxCountLearn}}</i>
+				</div>
+			</div>
+			<div class="row padding responsive-sm but_func" layout="row">
+				<button class="col col-25 md_button button button-small button-assertive button-outline" ng-click="saveConfig();">Save</button>
+				<button class="col col-25 md_button button button-small button-assertive button-outline" ng-click="setDefault();">Default</button>
+			</div>
+			<div class="row padding responsive-sm but_func" layout="row">
+				<button class="col col-50 md_button button button-small button-assertive button-outline" ng-click="showProfile();">Profile</button>
+			</div>
+			<div class="row padding responsive-sm but_func" layout="row">
+				<button class="col col-50 md_button button button-small button-assertive button-outline" ng-click="clearData();">Clear all data</button>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,30 @@
+<ion-view>
+	<ion-content has-bouncing="true" overflow-scroll="true">
+
+		<ion-list class="wordListLearn0000">
+		<div class="card" ng-repeat="item in model.wordList" ng-show="!item.isRemember" class="bouncy-slide-left">
+		  <div class="item item-divider item-icon-right" ng-click="showTestWord(item)">
+		    {{item.english}}
+		      <i class="icon ion-android-more-vertical" ng-click="showPopoverWordListLearn($event, item)"></i>
+		</div>
+		  <div class="item item-text-wrap bouncy-slide-left" ng-if="item.isShowVietnamese != 0">
+		    - {{item.vietnamese}} <br>
+              <span ng-if="item.example != null && item.example != ''"><u>Example:</u>&nbsp;-</span> {{item.example}}
+		  </div>
+		</div>
+			<br ng-if="checkShowCompleteLesson(model.wordList) == false">
+			<div ng-if="checkShowCompleteLesson(model.wordList) == false">
+				<p class="p">
+					your
+					<span ng-if="model.currentLesson.state != 1">lesson</span>
+					<span ng-if="model.currentLesson.state == 1">review</span>
+					completed
+				</p>
+				<hr>
+				<div layout="row" layout-sm="column" layout-align="center center">
+					<button class="col col-50 md_button md_button_circle button button-assertive button-outline" ng-click="endLesson()">OK</button>
+				</div>
+			</div>
+		</ion-list>
+	</ion-content>
+</ion-view>

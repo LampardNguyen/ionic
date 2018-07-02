@@ -1,0 +1,25 @@
+<div class="modal">
+  <!-- Modal header bar -->
+  <ion-header-bar class="bar-secondary" align-title="center">
+    <button class="button button-icon ion-log-in" ng-click="login()"></button>
+    <h1 class="title">Create account</h1>
+  </ion-header-bar>
+  <!-- Modal content area -->
+  <ion-content>
+    <form ng-submit="createNewUserSubmit(newUser)">
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" placeholder="Username" ng-model="newUser.name" required></label>
+        <label class="item item-input">
+          <input type="password" placeholder="Password" ng-model="newUser.pass" required></label>
+        <label class="item item-input">
+          <input type="password" placeholder="Confirm Password" ng-model="newUser.passConfirm" required></label>
+        <label class="item item-input">
+          <input type="email" placeholder="Email" ng-model="newUser.email" required></label>
+      </div>
+      <div class="padding">
+        <button type="submit" class="button button-block button-positive">Create</button>
+      </div>
+    </form>
+  </ion-content>
+</div>

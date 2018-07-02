@@ -1,0 +1,57 @@
+<div class="modal modal_login0000">
+	<ion-header-bar class="bar-assertive" align-title="center">
+		<button class="button button-icon ion-log-in" ng-click="showLogin()"></button>
+		<h1 class="title">Create account</h1>
+	</ion-header-bar>
+	<ion-content has-bouncing="true" overflow-scroll="true">
+		<form name="sigupForm" ng-submit="sigupSubmit(model)" ng-init="initSigupForm(this)">
+			<div class="list">
+				<label class="item item-input item-floating-label item-icon-right">
+					<span class="input-label">Username</span>
+					<input style="padding-right:0px;margin-right:44px;" type="text" placeholder="Username" name="username" ng-model="model.username" required maxlength="50" minlength="6"></label>
+				<label class="item item-input item-floating-label item-icon-right">
+					<span class="input-label">Password</span>
+					<input style="padding-right:0px;margin-right:44px;" type="password" placeholder="Password" name="password" ng-model="model.password" required maxlength="50" minlength="6"></label>
+				<label class="item item-input item-floating-label item-icon-right">
+					<span class="input-label">Confirm password</span>
+					<input style="padding-right:0px;margin-right:44px;" type="password" placeholder="Confirm password" name="confirmPassword" ng-model="model.confirmPassword" required maxlength="50" minlength="6"></label>
+				<label class="item item-input item-floating-label item-icon-right">
+					<span class="input-label">Email</span>
+					<input style="padding-right:0px;margin-right:44px;" type="email" placeholder="Email" name="email" ng-model="model.email" required maxlength="50" minlength="6"></label>
+				<div class="item error_message" ng-messages="sigupForm.username.$error" ng-if="(sigupForm.username.$touched && sigupForm.username.$invalid)">
+					<p>
+						<span ng-message="required">Username is required</span>
+						<span ng-message="minlength">Username is too short</span>
+					</p>
+				</div>
+				<div class="item error_message" ng-messages="sigupForm.password.$error" ng-if="(sigupForm.password.$touched && sigupForm.password.$invalid)">
+					<p>
+						<span ng-message="required">Password is required</span>
+						<span ng-message="minlength">Password is too short</span>
+					</p>
+				</div>
+				<div class="item error_message" ng-messages="sigupForm.confirmPassword.$error" ng-if="(sigupForm.confirmPassword.$touched && sigupForm.confirmPassword.$invalid)">
+					<p>
+						<span ng-message="required">Confirm password is required</span>
+						<span ng-message="minlength">Confirm password is too short</span>
+					</p>
+				</div>
+				<div class="item error_message" ng-if="(sigupForm.confirmPassword.$touched && model.password != model.confirmPassword)">
+					<p>
+						<span>Confirm password is not match</span>
+					</p>
+				</div>
+				<div class="item error_message" ng-messages="sigupForm.email.$error" ng-if="(sigupForm.email.$touched && sigupForm.email.$invalid)">
+					<p>
+						<span ng-message="required">Email is required</span>
+						<span ng-message="minlength">Email is too short</span>
+						<span ng-message="email">This email format is invalid!</span>
+					</p>
+				</div>
+			</div>
+			<div class="row padding responsive-sm but_func" layout="row">
+				<button class="col col-50 md_button button button-small button-assertive button-outline">Register</button>
+			</div>
+		</form>
+	</ion-content>
+</div>

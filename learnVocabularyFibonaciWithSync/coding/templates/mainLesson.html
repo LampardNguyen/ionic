@@ -1,0 +1,17 @@
+<ion-view >
+	<ion-content>
+		<div class="mainLesson0000">
+			<h1>{{model.currentLesson.name}}</h1>
+			<hr>
+			<p>
+				<span ng-if="model.currentLesson.state == 0">LEARN</span>
+				<span ng-if="model.currentLesson.state == 2">EXERCISES</span>
+				<span ng-if="model.currentLesson.state == 1">REVIEW</span>
+				NOW
+			</p>
+			<div layout="row" layout-sm="column" layout-align="center center">
+				<button class="col col-50 md_button md_button_circle button button-assertive button-outline" ng-click="startLearnVocabulary()">start</button>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>

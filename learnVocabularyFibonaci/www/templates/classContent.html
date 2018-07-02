@@ -1,0 +1,44 @@
+<ion-view>
+	<ion-content has-bouncing="true" overflow-scroll="true">
+		<div class="class_content0000">
+			<p class="p">{{model.currentClass.name}}</p>
+			<hr>
+			<br>
+			<div class="row responsive-sm but_func" layout="row" >
+				<button class="col col-25 md_button button  button-assertive button-outline" ng-click="showModalAddNewWords();">Add new words</button>
+				<span style="width: 10px;"></span>
+				<button class="col col-25 md_button button  button-assertive button-outline" ng-click="showCreateLesson()">Create lesson</button>
+			</div>
+			<!-- <br>
+			<div class="row responsive-sm but_func" layout="row"></div>
+			-->
+			<br>
+			<div class="row responsive-sm but_func" layout="row">
+				<button class="col col-25 md_button button  button-assertive button-outline" ng-click="showDoExcercises()">Do exercises</button>
+				<span style="width: 10px;"></span>
+				<button class="col col-25 md_button button  button-assertive button-outline" ng-click="showWordsNotLearnYet()">Words not study yet</button>
+			</div>
+			<!-- <br>
+			<div class="row responsive-sm but_func" layout="row"></div>
+			-->
+			<br>
+			<div class="row responsive-sm but_func" layout="row">
+				<button class="col col-25 md_button button  button-assertive button-outline" ng-click="showAllWordOfClass()">All word of class</button>
+				<span style="width: 10px;"></span>
+				<button class="col col-25 md_button button  button-assertive button-outline" ng-click="showManageLessons()">Manage lessons</button>
+			</div>
+			<!-- <br>
+			<div class="row responsive-sm but_func" layout="row"></div>
+			-->
+			<br>
+			<div class="row responsive-sm but_func" layout="row">
+				<button class="col col-25 md_button button  button-assertive button-outline" ng-click="showPopupAddClass(true)">Rename this class</button>
+				<span style="width: 10px;"></span>
+				<button class="col col-25 md_button button  button-assertive button-outline" ng-click="selectRemoveClass(model.currentClass);">Remove this class</button>
+			</div>
+			<!-- <br>
+			<div class="row responsive-sm but_func" layout="row"></div>
+			-->
+			<br></div>
+	</ion-content>
+</ion-view>

@@ -1,0 +1,11 @@
+{
+	"HEADER": {
+		"LABEL_TITLE": "Learn Vocabulary Fibonaci"
+	},
+	"ACTION_WORD_LIST_LEARN": {
+		"LABEL_SHOW_ALL": "Show all",
+		"LABEL_SHOW_VN": "Show vietnamese",
+		"LABEL_HIDE_VN": "Hide vietnamese",
+		"LABEL_STUDY_END": "Study end"
+	}
+}

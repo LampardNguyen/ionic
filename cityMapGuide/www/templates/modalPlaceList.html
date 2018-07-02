@@ -1,0 +1,27 @@
+<div class="modal">
+  <!-- Modal header bar -->
+  <ion-header-bar class="bar-positive item-input-inset" align-title="center">
+    <!-- <button class="button icon ion-android-send"></button>
+  -->
+  <button class="button button-icon icon ion-ios-undo-outline" ng-click="main.backToMap();"></button>
+  <!-- <label class="item-input-wrapper"> <i class="icon ion-ios7-search placeholder-icon"></i>
+    <input type="search" placeholder="Search" ng-model = "main.searchPlace" ng-change="main.findPlace()"></label> -->
+    <h1 class="title">Search place</h1>
+
+</ion-header-bar>
+<!-- Modal content area -->
+<ion-content>
+
+  <ion-list>
+   <div class="item item-input-inset">
+    <label class="item-input-wrapper">
+    <i class="icon ion-search placeholder-icon"></i>
+      <input type="text" placeholder="Search" ng-model = "main.searchPlace" ng-change="main.findPlace()">
+    </label>
+    <button class="button button-icon button-small icon ion-backspace-outline" ng-click="main.searchPlace = null; main.placesList=[];">
+    </button>
+  </div>
+    <ion-item ng-repeat="item in main.placesList" ng-click="main.choosePlace(item);">{{item.description }}</ion-item>
+  </ion-list>
+</ion-content>
+</div>

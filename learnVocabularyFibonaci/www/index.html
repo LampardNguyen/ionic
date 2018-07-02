@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="starter" ng-cloak>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="css/ionic.app.css" rel="stylesheet">
+    <link href="css/angular-material.min.css" rel="stylesheet">
+    <link href="css/ng-animation.css" rel="stylesheet"></head>
+<body ng-controller="mainCtrl">
+
+    <ion-side-menus>
+        <ion-side-menu-content class="content0000">
+            <ion-header-bar align-title="center" class="bar-assertive">
+                <div class="buttons">
+                    <button class="button button-clear icon ion-navicon" ng-click="toggleLeft()"></button>
+                </div>
+                <h1 class="title">Learn Vocabulary Fibonaci</h1>
+                <div class="buttons">
+                    <button class="button button-clear icon ion-grid" ng-click="showPopoverMenu($event);"></button>
+                </div>
+            </ion-header-bar>
+            <ion-nav-view class="include0000"></ion-nav-view>
+            <ion-footer-bar align-title="center" class="bar-assertive">
+                <div  class="buttons"  ng-if="model.view != '#/main'">
+                    <button class="button button-clear icon ion-ios-undo-outline" ng-click="back()"></button>
+                </div>
+                <h1 class="title"></h1>
+                <div  ng-if="model.view == '#/wordListLearn'" class="buttons" >
+                    <button class="button button-clear icon ion-ios-more-outline" ng-click="showActionSheetWordListLearn($event)"></button>
+                </div>
+                <div  ng-if="model.view == '#/allWordOfClass'" class="buttons" >
+                    <button class="button button-clear icon ion-ios-download-outline" ng-click="showPopupExport()"></button>
+                </div>
+            </ion-footer-bar>
+        </ion-side-menu-content>
+        <ion-side-menu side="left" class="menuLeft0000" ng-include="'./templates/leftSidebar.html'" scope="" onload=""></ion-side-menu>
+    </ion-side-menus>
+    <script src="lib/speakingurl.min.js" type="text/javascript" charset="utf-8" ></script>
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/angular-animate.min.js"></script>
+    <script src="lib/underscore.js"></script>
+    <script src="lib/angular-messages.js"></script>
+    <!-- CryptoJS -->
+    <script src="lib/CryptoJS/sha3.js"></script>
+    <!-- module -->
+    <script src="js/commonModule.js"></script>
+    <script src="js/dataAccesModule.js"></script>
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+
+    <script src="./lib/ngCordova/ng-cordova.min.js" type="text/javascript" charset="utf-8" ></script>
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+</body>
+</html>

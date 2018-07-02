@@ -1,0 +1,47 @@
+<ion-view>
+	<ion-content has-bouncing="true" overflow-scroll="true">
+		<div class="profile0000">
+			<form class="list" name="updateUsernameForm" ng-submit="saveUsername(model)">
+				<label class="item item-input item-floating-label item-icon-right">
+					<span class="input-label">Username</span>
+					<input style="padding-right:0px;margin-right:44px;" type="text" placeholder="Username" name="username" ng-model="model.username" required maxlength="50"></label>
+				<div class="item error_message" ng-messages="updateUsernameForm.username.$error" ng-if="(updateUsernameForm.username.$touched && updateUsernameForm.username.$invalid)">
+					<p>
+						<span ng-message="required">Username is required</span>
+					</p>
+				</div>
+				<div class="row padding responsive-sm but_func" layout="row">
+					<button class="col col-50 md_button button button-small button-assertive button-outline">Save</button>
+				</div>
+			</form>
+			<form class="list" name="updatePasswordForm" ng-submit="savePassword(model)">
+				<label class="item item-input item-floating-label item-icon-right">
+					<span class="input-label">New password</span>
+					<input style="padding-right:0px;margin-right:44px;" type="password" placeholder="New password" name="password" ng-model="model.password" required maxlength="50" minlength="6"></label>
+					<label class="item item-input item-floating-label item-icon-right">
+					<span class="input-label">Confirm new password</span>
+					<input style="padding-right:0px;margin-right:44px;" type="password" placeholder="Confirm new password" name="confirmPassword" ng-model="model.confirmPassword" required maxlength="50" minlength="6"></label>
+					<div class="item error_message" ng-messages="updatePasswordForm.password.$error" ng-if="(updatePasswordForm.password.$touched && updatePasswordForm.password.$invalid)">
+					<p>
+						<span ng-message="required">Password is required</span>
+						<span ng-message="minlength">Password is too short</span>
+					</p>
+				</div>
+				<div class="item error_message" ng-messages="updatePasswordForm.confirmPassword.$error" ng-if="(updatePasswordForm.confirmPassword.$touched && updatePasswordForm.confirmPassword.$invalid)">
+					<p>
+						<span ng-message="required">Confirm password is required</span>
+						<span ng-message="minlength">Confirm password is too short</span>
+					</p>
+				</div>
+				<div class="item error_message" ng-if="(updatePasswordForm.confirmPassword.$touched && model.password != model.confirmPassword)">
+					<p>
+						<span>Confirm password is not match</span>
+					</p>
+				</div>
+				<div class="row padding responsive-sm but_func" layout="row">
+					<button class="col col-50 md_button button button-small button-assertive button-outline">Save</button>
+				</div>
+			</form>
+		</div>
+	</ion-content>
+</ion-view>
